@@ -1,10 +1,10 @@
 <?php
 error_reporting(0);
 //dd connect to database
-$host = 'localhost';
-$db_name = 'todo_list';
-$login = 'root';
-$pswrd = '';
+$host = 'db2.ho.ua';
+$db_name = 'simpletodolist';
+$login = 'simpletodolist';
+$pswrd = 'gHmMGTR4GB';
 $connect = mysql_connect($host,$login,$pswrd);
 /* $connect = mysqli_connect($host, $login, $pswrd); */
 if(!$connect){
