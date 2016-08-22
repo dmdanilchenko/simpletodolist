@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="store">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>To do list</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/jquery-ui.css" rel="stylesheet" />
+    <link href="css/jquery-ui.structure.css" rel="stylesheet" />
+    <link href="css/jquery-ui.theme.css" rel="stylesheet" />
+    
+    <link href="css/app.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      
+  </head>
+  <body ng-controller="AppController as app">
+      <div class="container">
+        <div class="row">
+            <h1>Simple todo lists</h1>
+            <h2>From ruby garage</h2>
+            
+           
+            <div class="project-wrapper" ng-repeat="project in projects" >
+                 
+                <div class="project-header-wrapper" data-id="{{project.projectID}}">
+                    <button type="button" class="deadline-project" aria-label="Left Align"><input type="text" class="datepicker" value="{{project.deadLine}}"></button>
+                    <input class="edit-project-name" type="text" readonly=true value="{{project.name}}" placeholder="Please typing here name of the project..."/>
+                    <button type="button" class="remove-project" aria-label="Left Align"></button>
+                    <button type="button" class="edit-project" aria-label="Left Align"></button>
+                </div>
+                <div class="project-body-wrapper">
+                    <div class="add-task-wrapper">
+                        <button type="button" class="add-task-icon" aria-label="Left Align"></button>
+                        <div class="add-task-input-wrapper">
+                            <input class="new-task-name" type="text" placeholder="Please typing here to create a task..."/>
+                            <button type="button" class="add-task" aria-label="Left Align">Add Task</button>                        
+                        </div>
+                    </div>
+                    
+                    <div class="task-wrapper" ng-repeat="task in project.tasks">
+                        <div class="done-wrapper">
+                            <input type="checkbox" ng-checked="{{task.taskDone}}"/>
+                        </div>
+                        <div class="task-name-wrapper" data-id="{{task.taskID}}" data-priority="{{task.priority}}">
+                            <h4>{{task.taskName}}</h4>
+                            <input class="edit-task-name" type="text" value="{{task.taskName}}"/>
+                        </div>
+                        <div class="task-right-buttons-wrapper">                           
+                            <button type="button" class="change-priority-task" aria-label="Left Align"></button>
+                            <button type="button" class="edit-task" aria-label="Left Align"></button>
+                            <button type="button" class="remove-task" aria-label="Left Align"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="add-todo-list-wrapper">
+                <button type="button" class="add-todo-list"><span>Add TODO List</span></button>
+            </div>
+
+            <div class="copyright-wrapper">
+                <h5>© Ruby Garage</h5>
+            </div>
+        </div>
+      </div>
+    
+
+        <script src="js/angular.min.js" type="text/javascript"></script>
+        <script src="js/jquery-2.2.0.js" type="text/javascript"></script>
+        <script src="js/jquery-ui.js" type="text/javascript" ></script>
+
+        <script src="js/app.js" type="text/javascript"></script>
+  </body>
+</html>
